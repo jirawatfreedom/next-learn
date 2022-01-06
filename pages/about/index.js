@@ -1,9 +1,7 @@
-function about() {
+function AboutPage() {
 	return (
 		<div>
 			About Page
-
-
 			<h1 className="text-3xl font-bold underline">
 				Hello world!
 			</h1>
@@ -11,4 +9,4 @@ function about() {
 	);
 }
 
-export default about;
+export default AboutPage;
