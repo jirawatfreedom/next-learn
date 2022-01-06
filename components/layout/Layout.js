@@ -1,6 +1,6 @@
 function Layout(props) {
 	return (
-		<div>
+		<div className="px-4 py-4">
 			{props.children}
 		</div>
 	);
