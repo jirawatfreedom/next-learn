@@ -1,28 +1,34 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import Layout from '../components/layout/Layout'
-import styles from '../styles/Home.module.css'
-import Link from 'next/link'
+import { Fragment } from 'react';
+import Head from 'next/head';
 
+import FeaturedPosts from '../components/home-page/featured-posts';
+import Hero from '../components/home-page/hero';
+import { getFeaturedPosts } from '../lib/posts-util';
 
-function HomePage() {
+function HomePage(props) {
   return (
-    <>
-      <ul>
-        <li>
-          <Link href="/portfolio">
-            <a className="underline">PortfolioPage</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="/clients">
-            <a className="underline">ClientPage</a>
-          </Link>
-        </li>
-      </ul>
-
-
-    </>
-  )
+    <Fragment>
+      <Head>
+        <title>Max' Blog</title>
+        <meta
+          name='description'
+          content='I post about programming and web development.'
+        />
+      </Head>
+      <Hero />
+      <FeaturedPosts posts={props.posts} />
+    </Fragment>
+  );
 }
-export default HomePage
+
+export function getStaticProps() {
+  // const featuredPosts = getFeaturedPosts();
+
+  return {
+    props: {
+      // posts: featuredPosts,
+    },
+  };
+}
+
+export default HomePage;
